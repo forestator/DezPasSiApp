@@ -1,6 +1,8 @@
+import {Classe} from './Classe';
+
 export class Character {
   constructor(
     public name: string,
-    public spec: Array<any>,
+    public classe: Classe,
     public level: number) {}
 }
