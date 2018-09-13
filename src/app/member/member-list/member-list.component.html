@@ -1,3 +1,33 @@
-<p>
-  member-list works!
-</p>
+<div style="text-align:center">
+  <h1>
+    Membres de la guilde
+  </h1>
+</div>
+<div class="row">
+  <div class="mr-1 col-2">
+    <a class="btn btn-success" (click)="onNewMember()">Ajouter un nouveau membre</a>
+  </div>
+</div>
+<table class="mt-2 table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Rang</th>
+    <th scope="col">Classe</th>
+    <th scope="col">Spécialisation</th>
+    <th scope="col">Admin</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let member of members; let i = index">
+    <th scope="row" class="status--{{removeSpace(member.classe.name)}}">{{i+1}}</th>
+    <td class="status--{{removeSpace(member.classe.name)}}">{{member.name}}</td>
+    <td class="status--{{removeSpace(member.classe.name)}}">{{member.rank}}</td>
+    <td class="status--{{removeSpace(member.classe.name)}}">{{member.classe.name}}</td>
+    <td class="status--{{removeSpace(member.classe.name)}}">{{member.spec}} </td>
+    <td><button class="btn-sm btn-warning">Edit</button> | <button class = "btn-sm btn-success">Details</button> |
+      <button class = "btn-sm btn-danger" (click)="onDeleteMember(member)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

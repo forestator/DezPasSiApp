@@ -1,9 +1,9 @@
-import {Character} from './Character';
+import {Classe} from './Classe';
 
 export class Member {
   constructor(
     public name: string,
-    public rank: string,
-    public listCharacters: Array<Character>,
-    public created_at: string) {}
+    public classe: Classe,
+    public spec : string,
+    public rank: string) {}
 }

@@ -1,5 +1,6 @@
 export class BisItem {
   constructor(
+    public id: number,
     public name: string,
     public ilvl: number,
     public mastery: number,

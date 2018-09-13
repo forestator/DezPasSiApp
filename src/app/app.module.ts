@@ -13,9 +13,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {CharactersService} from './services/characters.service';
 import {MembersService} from './services/members.service';
 import {RouterModule, Routes} from '@angular/router';
+import { NewMemberComponent } from './member/new-member/new-member.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
-  { path: 'members', component: MemberListComponent}
+  { path: 'members', component: MemberListComponent},
+  { path: 'newMember', component: NewMemberComponent},
+  { path: '**', component: MemberListComponent},
+  { path: '', component: MemberListComponent}
 ]
 
 @NgModule({
@@ -28,10 +33,14 @@ const appRoutes: Routes = [
     SpecListComponent,
     BisListComponent,
     ItemComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewMemberComponent
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

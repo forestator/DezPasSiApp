@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="ml-5 col-sm-8 col-sm-offset-2">
+    <h2>Enregistrer un nouveau membre</h2>
+    <form [formGroup]="memberForm" (ngSubmit)="onSavePost()">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name"
+               class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="classe">Classe :</label>
+        <select id="classe" class="form-control" formControlName="classe" (change)="onSelectOption()">
+          <option *ngFor="let classeSel of  availableClasses" [ngValue]="classeSel">{{classeSel.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="spec">Specialisation :</label>
+        <select id="spec" class="form-control" formControlName="spec">
+          <option *ngFor="let spe of  selectedSpecs" [ngValue]="spe">{{spe}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="rank">Rang dans la guilde :</label>
+        <select type="text" id="rank" class="form-control" formControlName="rank">
+          <option>
+            Maître de guilde
+          </option>
+          <option>
+            Officier
+          </option>
+          <option>
+            Membre
+          </option>
+          <option>
+            Rerool
+          </option>
+        </select>
+      </div>
+      <button class="btn btn-success" [disabled]="memberForm.invalid"
+              type="submit">Enregistrer
+      </button>
+    </form>
+  </div>
+</div>

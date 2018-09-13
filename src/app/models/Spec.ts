@@ -1,7 +1,5 @@
-import {BisItem} from './BisItem';
-
-export class Spec {
-  constructor(
+export abstract class Spec {
+  protected constructor(
     public name: string,
-    public spec: Array<BisItem>) {}
+    public bisItems: string) {}
 }

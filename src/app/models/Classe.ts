@@ -1,8 +1,5 @@
-import {Spec} from './Spec';
-
-export class Classe {
-  constructor(
+export abstract class Classe {
+  protected constructor(
     public name: string,
-    public spec: Array<Spec>
-  ) {}
+    public specs: Array<string>) {}
 }
