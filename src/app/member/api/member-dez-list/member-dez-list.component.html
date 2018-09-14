@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Rank</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Classe</th>
+    <th scope="col">Level</th>
+    <th scope="col">achievementPoints</th>
+    <th scope="col">thumbnail</th>
+    <th scope="col">spec</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let member of members ; let i = index">
+    <th scope="row">{{i+1}}</th>
+    <td>{{member.rank}}</td>
+    <td>{{member.character.name}}</td>
+    <td>{{textClasse(member.character.class)}}</td>
+    <td>{{member.character.level}}</td>
+    <td>{{member.character.achievementPoints}}</td>
+    <td><img src="http://render-eu.worldofwarcraft.com/character/{{member.character.thumbnail}}"/></td>
+    <td>{{member.character.spec}}</td>
+    <td><button class="btn-sm btn-warning">Edit</button> | <button class = "btn-sm btn-success">Details</button> |
+      <button class = "btn-sm btn-danger">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
