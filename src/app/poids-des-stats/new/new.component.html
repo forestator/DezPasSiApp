@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Enregistrer des nouvelles stats</h2>
+    <form [formGroup]="pdsForm" (ngSubmit)="onSavePds()">
+      <div class="form-group">
+        <label for="specName">Spécialisation :</label>
+        <select class="form-control" id="specName" formControlName="specName">
+          <optgroup label="Guerrier">
+            <option value="Armes">Armes</option>
+            <option value="Protection">Protection</option>
+            <option value="Fury">Fury</option>
+          </optgroup>
+          <optgroup label="Paladin">
+            <option value="Protection">Protection</option>
+            <option value="Vindicte">Vindicte</option>
+            <option value="Sacré">Sacré</option>
+          </optgroup>
+          <optgroup label="Chasseur">
+            <option value="Maîtrise des bêtes">Maîtrise des bêtes</option>
+            <option value="Précision">Précision</option>
+            <option value="Survie">Survie</option>
+          </optgroup>
+          <optgroup label="Voleur">
+            <option value="Assassinat">Assassinat</option>
+            <option value="Hors-la-loi">Hors-la-loi</option>
+            <option value="Finesse">Finesse</option>
+          </optgroup>
+          <optgroup label="Prêtre">
+            <option value="Discipline">Discipline</option>
+            <option value="Sacré">Sacré</option>
+            <option value="Ombre">Ombre</option>
+          </optgroup>
+          <optgroup label="Chevalier de la mort">
+            <option value="Sang">Sang</option>
+            <option value="Givre">Givre</option>
+            <option value="Impie">Impie</option>
+          </optgroup>
+          <optgroup label="Chaman">
+            <option value="Élémentaire">Élémentaire</option>
+            <option value="Amélioration">Amélioration</option>
+            <option value="Restauration">Restauration</option>
+          </optgroup>
+          <optgroup label="Mage">
+            <option value="Arcane">Arcane</option>
+            <option value="Feu">Feu</option>
+            <option value="Givre">Givre</option>
+          </optgroup>
+          <optgroup label="Démoniste">
+            <option value="Affliction">Affliction</option>
+            <option value="Démonologie">Démonologie</option>
+            <option value="Destruction">Destruction</option>
+          </optgroup>
+          <optgroup label="Moine">
+            <option value="Maître Brasseur">Maître Brasseur</option>
+            <option value="Tisse-Brume">Tisse-Brume</option>
+            <option value="Marche-vent">Marche-vent</option>
+          </optgroup>
+          <optgroup label="Druide">
+            <option value="Équilibre">Équilibre</option>
+            <option value="Combat Farouche">Combat Farouche</option>
+            <option value="Gardien">Gardien</option>
+            <option value="Restauration">Restauration</option>
+          </optgroup>
+          <optgroup label="Chasseur de démons">
+            <option value="Dévastation">Dévastation</option>
+            <option value="Vengeance">Vengeance</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stats">Stats :</label>
+        <input type="text" id="stats"
+                  class="form-control" formControlName="stats"/>
+      </div>
+      <button class="btn btn-success" [disabled]="pdsForm.invalid"
+              type="submit">Enregistrer
+      </button>
+    </form>
+  </div>
+</div>

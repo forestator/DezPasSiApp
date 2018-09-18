@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom de la spé</th>
+    <th scope="col">Stats Mono</th>
+    <th scope="col">Stats Multi</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let stat of listeStats; let i = index">
+    <th scope="row">{{i+1}}</th>
+    <td>{{stat.specName}}</td>
+    <td>{{stat.stats}}</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
