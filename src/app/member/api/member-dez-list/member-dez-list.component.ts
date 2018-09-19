@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Member, RootObject, WowWapiGuildMembersService} from '../../../services/wow-wapi-guild-members.service';
 import {Subscription} from 'rxjs';
+import {StatsService} from '../../../services/stats.service';
+import {PoidsDesStats} from '../../../models/PDS';
+import {Router} from '@angular/router';
+import {ItemsDonnesService} from '../../../services/items-donnes.service';
 
 @Component({
   selector: 'app-member-dez-list',
@@ -9,18 +13,30 @@ import {Subscription} from 'rxjs';
 })
 export class MemberDezListComponent implements OnInit {
 
-  constructor(private wowService: WowWapiGuildMembersService) {
-  }
-
+  listeStats: PoidsDesStats[];
+  statsSubscription: Subscription;
   members: Member[];
   memberSubscription: Subscription;
 
-  ngOnInit() {
-    this.showRealms();
+  constructor(private wowService: WowWapiGuildMembersService, private statsService: StatsService,private itemService: ItemsDonnesService) {
   }
 
-  showRealms() {
-    this.memberSubscription = this.wowService.getRealms().subscribe((root: RootObject) => {
+  ngOnInit() {
+    this.showMembers();
+    this.showStats();
+  }
+
+  showStats() {
+    this.statsSubscription = this.statsService.statsSubject.subscribe(
+      (listeStats: PoidsDesStats[]) => {
+        this.listeStats = listeStats;
+      }
+    );
+    this.statsService.emitStats();
+  }
+
+  showMembers() {
+    this.memberSubscription = this.wowService.getMembers().subscribe((root: RootObject) => {
       this.members = root.members;
       this.members.sort((a,b) =>{
         if (a.rank > b.rank) return 1;
@@ -32,56 +48,110 @@ export class MemberDezListComponent implements OnInit {
   textClasse(classe){
     switch (classe) {
       case 1: {
-        return classe =  'Warrior';
+        return 'Warrior';
       }
       case 2: {
-        return         classe =  'Paladin ';
+        return 'Paladin ';
 
       }
       case 3: {
-        return         classe =  'Hunter ';
+        return 'Hunter ';
 
       }
       case 4: {
-        return         classe =  'Rogue';
+        return 'Rogue';
 
       }
       case 5: {
-        return         classe =  'Priest ';
+        return 'Priest';
 
       }
       case 6: {
-        return         classe =  'DeathKnight ';
+        return 'DeathKnight ';
 
       }
       case 7: {
-        return         classe =  'Shaman';
+        return 'Shaman';
 
       }
       case 8: {
-        return         classe =  'Mage ';
+        return 'Mage ';
 
       }
       case 9: {
-        return         classe =  'Warlock ';
+        return 'Warlock ';
 
       }
       case 10: {
-        return         classe =  'Monk ';
+        return 'Monk ';
 
       }
       case 11: {
-        return         classe =  'Druid ';
+        return 'Druid ';
 
       }
       case 12: {
-        return         classe =  'Demon Hunter';
+        return 'Demon Hunter';
 
       }
       default: {
-        return classe = "erreur";
+        return "erreur";
 
       }
     }
   }
+
+  //Permet de se placer dans le tableau de membres en fonction de la classe
+  tabIterator(n:number){
+    return (n -1)*3;
+  }
+
+  findStatsBySpecMono(specName: string, classe:number){
+    for (let j = (this.tabIterator(classe)); j <= (this.tabIterator(classe)+2); j++) {
+      if (this.listeStats[j].specName == specName){
+        return this.listeStats[j].statsMono;
+      }
+    }
+  }
+
+  findStatsBySpecMulti(specName: string, classe:number){
+    for (let j = (this.tabIterator(classe)); j <= (this.tabIterator(classe)+2); j++) {
+      if (this.listeStats[j].specName == specName){
+        return this.listeStats[j].statsMulti;
+      }
+    }
+  }
+
+  textRank(rank: number){
+    switch (rank) {
+      case 0: {
+        return 'Maitre de Guilde';
+      }
+      case 1: {
+        return 'Officier';
+      }
+      case 2: {
+        return 'Rerool Officier ';
+
+      }
+      case 3: {
+        return 'Fondateur ';
+
+      }
+      case 4: {
+        return   'Membre';
+
+      }
+      case 5: {
+        return  'Rerool ';
+
+      }
+      default: {
+        return "erreur";
+
+      }
+    }
+
+  }
+
 }

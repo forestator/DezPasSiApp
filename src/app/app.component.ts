@@ -7,7 +7,6 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'DezPasSiApp';
   constructor() {
     const config = {
       apiKey: "AIzaSyBpTG_PJztP6z-TvyKH6cq6lt3yJkXsr8M",

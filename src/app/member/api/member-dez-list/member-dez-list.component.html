@@ -6,21 +6,28 @@
     <th scope="col">Nom</th>
     <th scope="col">Classe</th>
     <th scope="col">thumbnail</th>
+    <th scope="col">ILvl</th>
     <th scope="col">spec</th>
-    <th scope="col">Poids des stats</th>
+    <th scope="col">Mono</th>
+    <th scope="col">Multi</th>
     <th scope="col">Items équipés</th>
+    <th scope="col">Items distribués</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let member of members ; let i = index">
     <th scope="row">{{i+1}}</th>
-    <td>{{member.rank}}</td>
+    <td>{{textRank(member.rank)}}</td>
     <td>{{member.character.name}}</td>
     <td>{{textClasse(member.character.class)}}</td>
-    <td><img src="http://render-eu.worldofwarcraft.com/character/{{member.character.thumbnail}}"/></td>
-    <td>{{member.character.spec.name}}</td>
-    <td></td>
-    <td>Items équipés</td>
+    <td><img src="http://render-eu.worldofwarcraft.com/character/{{member.character.thumbnail}}"/>
+    <td><app-member-item nomMembre="{{member.character.name}}"></app-member-item></td>
+    <td *ngIf="member.character.spec != null">{{member.character.spec.name}}</td>
+    <td *ngIf="member.character.spec != null">{{findStatsBySpecMono(member.character.spec.name,member.character.class)}}</td>
+    <td *ngIf="member.character.spec != null">{{findStatsBySpecMulti(member.character.spec.name,member.character.class)}}</td>
+    <td *ngIf="member.character.spec != null">
+      <a href="https://worldofwarcraft.com/fr-fr/character/archimonde/{{member.character.name.toLowerCase()}}">Armory</a></td>
+    <td><app-item [characterName]="member.character.name"></app-item></td>
   </tr>
   </tbody>
 </table>

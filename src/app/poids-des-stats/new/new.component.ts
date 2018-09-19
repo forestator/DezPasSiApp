@@ -23,14 +23,16 @@ export class NewComponent implements OnInit {
   initForm() {
     this.pdsForm = this.formBuilder.group({
       specName: ['', Validators.required],
-      stats: ['', Validators.required]
+      statsMono: ['', Validators.required],
+      statsMulti: ['', Validators.required]
     });
   }
 
   onSavePds() {
     const specName = this.pdsForm.get('specName').value;
-    const stats = this.pdsForm.get('stats').value;
-    const newPds = new PoidsDesStats(specName,stats);
+    const statsMono = this.pdsForm.get('statsMono').value;
+    const statsMulti = this.pdsForm.get('statsMulti').value;
+    const newPds = new PoidsDesStats(specName,statsMono,statsMulti);
     this.statsService.createNewStats(newPds);
     this.router.navigate(['/pds']);
   }

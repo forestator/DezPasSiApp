@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Enregistrer des nouvelles stats</h2>
+    <form [formGroup]="itemAssoForm" (ngSubmit)="onSaveAsso()">
+      <div class="form-group">
+        <label for="characterName">Nom du Personnage :</label>
+        <input type="text" id="characterName"
+               class="form-control" formControlName="characterName"/>
+      </div>
+      <div class="form-group">
+        <label for="idItem">Id de l'objet :</label>
+        <input type="number" id="idItem"
+               class="form-control" formControlName="idItem"/>
+      </div>
+      <div class="form-group">
+        <label for="name">Nom de l'objet :</label>
+        <input type="text" id="name"
+               class="form-control" formControlName="name"/>
+      </div>
+      <button class="btn btn-success" [disabled]="itemAssoForm.invalid"
+              type="submit">Enregistrer
+      </button>
+    </form>
+  </div>
+</div>

@@ -15,11 +15,15 @@ import { MemberDezListComponent } from './member/api/member-dez-list/member-dez-
 import {StatsService} from './services/stats.service';
 import { PoidsDesStatsComponent } from './poids-des-stats/poids-des-stats.component';
 import { NewComponent } from './poids-des-stats/new/new.component';
+import {CharacterDetailsService} from './services/character-details.service';
+import { NewItemAssociationComponent } from './itemisation/new-item-association/new-item-association.component';
 
 const appRoutes: Routes = [
   { path: 'members', component: MemberDezListComponent},
   { path: 'pds', component: PoidsDesStatsComponent},
   { path: 'newpds', component: NewComponent},
+  { path: 'newItemAssociation', component: NewItemAssociationComponent},
+  { path: 'memberDetails', component: MemberItemComponent},
   { path: '**', component: MemberDezListComponent},
   { path: '', component: MemberDezListComponent}
 ]
@@ -34,7 +38,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     MemberDezListComponent,
     PoidsDesStatsComponent,
-    NewComponent
+    NewComponent,
+    NewItemAssociationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     StatsService,
-    WowWapiGuildMembersService],
+    WowWapiGuildMembersService,
+    CharacterDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

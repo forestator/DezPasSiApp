@@ -12,6 +12,19 @@ export interface Spec {
   order: number;
 }
 
+export class Item {
+
+  constructor(characterName: string, idItem: number, name: string) {
+    this.characterName = characterName;
+    this.idItem = idItem;
+    this.name = name;
+  }
+
+  characterName: string;
+  idItem: number;
+  name: string;
+}
+
 export interface Character {
   name: string;
   realm: string;
@@ -26,6 +39,7 @@ export interface Character {
   guild: string;
   guildRealm: string;
   lastModified: number;
+  itemsDonnesEnRaid: Item[];
 }
 
 export interface Member {
@@ -65,7 +79,7 @@ export class WowWapiGuildMembersService {
 
   configUrl = 'https://eu.api.battle.net/wow/guild/Archimonde/Dez%20pas%20si%20t%C3%B4t?fields=members&locale=fr_FR&apikey=nvr9d4r4suamg52mvstz5a853u593424';
 
-  getRealms() {
+  getMembers() {
     return this.http.get<RootObject>(this.configUrl)
       .pipe(
         retry(3), // retry a failed request up to 3 times

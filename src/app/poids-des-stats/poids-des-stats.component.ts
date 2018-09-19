@@ -21,9 +21,6 @@ export class PoidsDesStatsComponent implements OnInit {
     this.statsSubscription = this.statsService.statsSubject.subscribe(
       (listeStats: PoidsDesStats[]) => {
         this.listeStats = listeStats;
-  /*      this.listeStats.sort((a,b) =>{
-          if (a.id > b.id) return 1;
-          if (a.id < b.id) return -1;});  */
       }
     );
     this.statsService.emitStats();

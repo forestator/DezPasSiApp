@@ -8,7 +8,7 @@
           <optgroup label="Guerrier">
             <option value="Armes">Armes</option>
             <option value="Protection">Protection</option>
-            <option value="Fury">Fury</option>
+            <option value="Fury">Fureur</option>
           </optgroup>
           <optgroup label="Paladin">
             <option value="Protection">Protection</option>
@@ -52,12 +52,12 @@
           </optgroup>
           <optgroup label="Moine">
             <option value="Maître Brasseur">Maître Brasseur</option>
-            <option value="Tisse-Brume">Tisse-Brume</option>
+            <option value="Tisse-brume">Tisse-brume</option>
             <option value="Marche-vent">Marche-vent</option>
           </optgroup>
           <optgroup label="Druide">
             <option value="Équilibre">Équilibre</option>
-            <option value="Combat Farouche">Combat Farouche</option>
+            <option value="Combat Farouche">Farouche</option>
             <option value="Gardien">Gardien</option>
             <option value="Restauration">Restauration</option>
           </optgroup>
@@ -68,9 +68,14 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="stats">Stats :</label>
-        <input type="text" id="stats"
-                  class="form-control" formControlName="stats"/>
+      <label for="statsMono">Stats Mono :</label>
+      <input type="text" id="statsMono"
+             class="form-control" formControlName="statsMono"/>
+    </div>
+      <div class="form-group">
+        <label for="statsMulti">Stats Multi :</label>
+        <input type="text" id="statsMulti"
+               class="form-control" formControlName="statsMulti"/>
       </div>
       <button class="btn btn-success" [disabled]="pdsForm.invalid"
               type="submit">Enregistrer
