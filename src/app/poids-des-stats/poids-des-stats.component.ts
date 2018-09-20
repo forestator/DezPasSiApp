@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { StatsService} from '../services/stats.service';
+import {Component, OnInit} from '@angular/core';
+import {StatsService} from '../services/stats.service';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {PoidsDesStats} from '../models/PDS';
@@ -35,8 +35,17 @@ export class PoidsDesStatsComponent implements OnInit {
   }
 
 
-  ngOnDestroy() {
-    this.statsService.unsubscribe();
+  affichageDate(dateDeModif: string) {
+    if (dateDeModif == null) {
+      return '20/09/2018';
+    } else {
+      return dateDeModif;
+    }
   }
+
+  onEditClick(stat: PoidsDesStats) {
+    this.router.navigate(['/editPds/'+stat.specName+'/'+stat.statsMono+'/'+stat.statsMulti+'/'+stat.classeName])
+  }
+
 
 }

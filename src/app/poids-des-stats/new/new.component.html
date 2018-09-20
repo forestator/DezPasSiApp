@@ -3,6 +3,24 @@
     <h2>Enregistrer des nouvelles stats</h2>
     <form [formGroup]="pdsForm" (ngSubmit)="onSavePds()">
       <div class="form-group">
+        <label for="classeName">Classe :</label>
+        <select class="form-control" id="classeName" formControlName="classeName">
+            <option value="Guerrier">Guerrier</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Chasseur">Chasseur</option>
+            <option value="Voleur">Voleur</option>
+            <option value="Prêtre">Prêtre</option>
+            <option value="Chevalier de la mort">Chevalier de la mort</option>
+            <option value="Chaman">Chaman</option>
+            <option value="Mage">Mage</option>
+            <option value="Démoniste">Démoniste</option>
+            <option value="Moine">Moine</option>
+            <option value="Druide">Druide</option>
+          <option value="Chasseur de démons">Chasseur de démons
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="specName">Spécialisation :</label>
         <select class="form-control" id="specName" formControlName="specName">
           <optgroup label="Guerrier">

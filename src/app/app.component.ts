@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import {config, environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,6 @@ import * as firebase from 'firebase';
 })
 export class AppComponent {
   constructor() {
-    const config = {
-      apiKey: "AIzaSyBpTG_PJztP6z-TvyKH6cq6lt3yJkXsr8M",
-      authDomain: "dezpassiapp.firebaseapp.com",
-      databaseURL: "https://dezpassiapp.firebaseio.com",
-      projectId: "dezpassiapp",
-      storageBucket: "dezpassiapp.appspot.com",
-      messagingSenderId: "46683448009"
-    };
     firebase.initializeApp(config);
   }
 }

@@ -45,4 +45,14 @@ export class ItemComponent implements OnInit {
       }
     }
   }
+
+  findItemBonus() {
+    for(let item of this.items){
+      if (item.characterName == this.characterName){
+        return item.bonus;
+      } else {
+        return 'pas d\'objets';
+      }
+    }
+  }
 }

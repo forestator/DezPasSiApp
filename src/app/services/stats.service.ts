@@ -39,6 +39,20 @@ export class StatsService {
     this.emitStats();
   }
 
+  editStats(statsToEdit: PoidsDesStats){
+    const statIndexToUpdate = this.listeStats.findIndex(
+      (postToUpdate) => {
+        if (postToUpdate.classeName === statsToEdit.classeName && postToUpdate.specName === statsToEdit.specName) {
+          return true;
+        }
+      }
+    );
+    this.listeStats[statIndexToUpdate] = statsToEdit;
+    this.saveStats();
+    this.emitStats();
+  }
+
+  //TODO
   removeStats(newStats: PoidsDesStats) {
     const postIndexToRemove = this.listeStats.findIndex(
       (statsToDelete) => {
@@ -50,9 +64,5 @@ export class StatsService {
     this.listeStats.splice(postIndexToRemove, 1);
     this.saveStats();
     this.emitStats();
-  }
-
-  unsubscribe() {
-    this.statsSubject.unsubscribe();
   }
 }

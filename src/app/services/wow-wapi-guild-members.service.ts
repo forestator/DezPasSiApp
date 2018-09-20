@@ -14,15 +14,17 @@ export interface Spec {
 
 export class Item {
 
-  constructor(characterName: string, idItem: number, name: string) {
+  constructor(characterName: string, idItem: number, name: string, bonus:string) {
     this.characterName = characterName;
     this.idItem = idItem;
     this.name = name;
+    this.bonus = bonus;
   }
 
   characterName: string;
   idItem: number;
   name: string;
+  bonus: string
 }
 
 export interface Character {

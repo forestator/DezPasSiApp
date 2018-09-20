@@ -6,6 +6,15 @@ export const environment = {
   production: false
 };
 
+export const config = {
+  apiKey: "AIzaSyBpTG_PJztP6z-TvyKH6cq6lt3yJkXsr8M",
+  authDomain: "dezpassiapp.firebaseapp.com",
+  databaseURL: "https://dezpassiapp.firebaseio.com",
+  projectId: "dezpassiapp",
+  storageBucket: "dezpassiapp.appspot.com",
+  messagingSenderId: "46683448009"
+};
+
 /*
  * In development mode, for easier debugging, you can ignore zone related error
  * stack frames such as `zone.run`/`zoneDelegate.invokeTask` by importing the

@@ -48,50 +48,50 @@ export class MemberDezListComponent implements OnInit {
   textClasse(classe){
     switch (classe) {
       case 1: {
-        return 'Warrior';
+        return 'Guerrier';
       }
       case 2: {
-        return 'Paladin ';
+        return 'Paladin';
 
       }
       case 3: {
-        return 'Hunter ';
+        return 'Chasseur';
 
       }
       case 4: {
-        return 'Rogue';
+        return 'Voleur';
 
       }
       case 5: {
-        return 'Priest';
+        return 'Prêtre';
 
       }
       case 6: {
-        return 'DeathKnight ';
+        return 'Chevalier de la mort';
 
       }
       case 7: {
-        return 'Shaman';
+        return 'Chaman';
 
       }
       case 8: {
-        return 'Mage ';
+        return 'Mage';
 
       }
       case 9: {
-        return 'Warlock ';
+        return 'Démoniste';
 
       }
       case 10: {
-        return 'Monk ';
+        return 'Moine';
 
       }
       case 11: {
-        return 'Druid ';
+        return 'Druide';
 
       }
       case 12: {
-        return 'Demon Hunter';
+        return 'Chasseur de démons';
 
       }
       default: {
@@ -101,23 +101,19 @@ export class MemberDezListComponent implements OnInit {
     }
   }
 
-  //Permet de se placer dans le tableau de membres en fonction de la classe
-  tabIterator(n:number){
-    return (n -1)*3;
-  }
 
-  findStatsBySpecMono(specName: string, classe:number){
-    for (let j = (this.tabIterator(classe)); j <= (this.tabIterator(classe)+2); j++) {
-      if (this.listeStats[j].specName == specName){
-        return this.listeStats[j].statsMono;
+  findStatsBySpecMono(specName: string, classe:string){
+    for (let stat of this.listeStats){
+      if (stat.specName == specName && stat.classeName == classe){
+        return stat.statsMono;
       }
     }
   }
 
-  findStatsBySpecMulti(specName: string, classe:number){
-    for (let j = (this.tabIterator(classe)); j <= (this.tabIterator(classe)+2); j++) {
-      if (this.listeStats[j].specName == specName){
-        return this.listeStats[j].statsMulti;
+  findStatsBySpecMulti(specName: string, classe:string){
+    for (let stat of this.listeStats){
+      if (stat.specName == specName && stat.classeName == classe){
+        return stat.statsMulti;
       }
     }
   }

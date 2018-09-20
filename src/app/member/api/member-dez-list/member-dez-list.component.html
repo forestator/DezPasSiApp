@@ -23,8 +23,8 @@
     <td><img src="http://render-eu.worldofwarcraft.com/character/{{member.character.thumbnail}}"/>
     <td><app-member-item nomMembre="{{member.character.name}}"></app-member-item></td>
     <td *ngIf="member.character.spec != null">{{member.character.spec.name}}</td>
-    <td *ngIf="member.character.spec != null">{{findStatsBySpecMono(member.character.spec.name,member.character.class)}}</td>
-    <td *ngIf="member.character.spec != null">{{findStatsBySpecMulti(member.character.spec.name,member.character.class)}}</td>
+    <td *ngIf="member.character.spec != null">{{findStatsBySpecMono(member.character.spec.name,textClasse(member.character.class))}}</td>
+    <td *ngIf="member.character.spec != null">{{findStatsBySpecMulti(member.character.spec.name,textClasse(member.character.class))}}</td>
     <td *ngIf="member.character.spec != null">
       <a href="https://worldofwarcraft.com/fr-fr/character/archimonde/{{member.character.name.toLowerCase()}}">Armory</a></td>
     <td><app-item [characterName]="member.character.name"></app-item></td>

@@ -17,6 +17,10 @@ import { PoidsDesStatsComponent } from './poids-des-stats/poids-des-stats.compon
 import { NewComponent } from './poids-des-stats/new/new.component';
 import {CharacterDetailsService} from './services/character-details.service';
 import { NewItemAssociationComponent } from './itemisation/new-item-association/new-item-association.component';
+import {AngularFireModule} from '@angular/fire';
+import {config} from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { EditComponent } from './poids-des-stats/edit/edit.component';
 
 const appRoutes: Routes = [
   { path: 'members', component: MemberDezListComponent},
@@ -24,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'newpds', component: NewComponent},
   { path: 'newItemAssociation', component: NewItemAssociationComponent},
   { path: 'memberDetails', component: MemberItemComponent},
+  { path: 'editPds/:spec/:mono/:multi/:classe', component: EditComponent},
   { path: '**', component: MemberDezListComponent},
   { path: '', component: MemberDezListComponent}
 ]
@@ -39,7 +44,8 @@ const appRoutes: Routes = [
     MemberDezListComponent,
     PoidsDesStatsComponent,
     NewComponent,
-    NewItemAssociationComponent
+    NewItemAssociationComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +53,15 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   providers: [
     StatsService,
     WowWapiGuildMembersService,
-    CharacterDetailsService],
+    CharacterDetailsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

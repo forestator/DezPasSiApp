@@ -26,7 +26,8 @@ export class NewItemAssociationComponent implements OnInit {
     this.itemAssoForm = this.formBuilder.group({
       characterName: ['', Validators.required],
       idItem: ['', Validators.required],
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      bonus: ['', Validators.required],
     });
   }
 
@@ -34,7 +35,8 @@ export class NewItemAssociationComponent implements OnInit {
     const characterName = this.itemAssoForm.get('characterName').value;
     const idItem = this.itemAssoForm.get('idItem').value;
     const name = this.itemAssoForm.get('name').value;
-    const newAsso = new Item(characterName, idItem, name);
+    const bonus = this.itemAssoForm.get('bonus').value;
+    const newAsso = new Item(characterName, idItem, name,bonus);
     this.itemAssoService.addAssociation(newAsso);
     this.router.navigate(['/members']);
   }
