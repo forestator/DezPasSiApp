@@ -16,6 +16,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let member of members ; let i = index">
+    <ng-container *ngIf="member.rank !=2 && member.rank !=5">
     <th scope="row">{{i+1}}</th>
     <td>{{textRank(member.rank)}}</td>
     <td>{{member.character.name}}</td>
@@ -28,6 +29,7 @@
     <td *ngIf="member.character.spec != null">
       <a href="https://worldofwarcraft.com/fr-fr/character/archimonde/{{member.character.name.toLowerCase()}}">Armory</a></td>
     <td><app-item [characterName]="member.character.name"></app-item></td>
+    </ng-container>
   </tr>
   </tbody>
 </table>

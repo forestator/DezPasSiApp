@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Member, RootObject, WowWapiGuildMembersService} from '../../../services/wow-wapi-guild-members.service';
 import {Subscription} from 'rxjs';
 import {StatsService} from '../../../services/stats.service';
 import {PoidsDesStats} from '../../../models/PDS';
-import {Router} from '@angular/router';
 import {ItemsDonnesService} from '../../../services/items-donnes.service';
 
 @Component({
@@ -147,7 +146,13 @@ export class MemberDezListComponent implements OnInit {
 
       }
     }
+  }
 
+  ngOnDestroy(){
+    this.itemService.unsubscribe();
+    this.statsService.unsubscribe();
+    this.memberSubscription.unsubscribe();
+    this.statsSubscription.unsubscribe();
   }
 
 }

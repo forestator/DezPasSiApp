@@ -65,4 +65,8 @@ export class StatsService {
     this.saveStats();
     this.emitStats();
   }
+
+  unsubscribe() {
+    this.statsSubject.unsubscribe();
+  }
 }

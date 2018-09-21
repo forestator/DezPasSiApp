@@ -21,6 +21,9 @@ import {AngularFireModule} from '@angular/fire';
 import {config} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { EditComponent } from './poids-des-stats/edit/edit.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSelectModule, MatTableModule} from '@angular/material';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 const appRoutes: Routes = [
   { path: 'members', component: MemberDezListComponent},
@@ -55,7 +58,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [
     StatsService,

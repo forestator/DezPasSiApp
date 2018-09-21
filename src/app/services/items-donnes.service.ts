@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import * as firebase from 'firebase';
 import {Item} from './wow-wapi-guild-members.service';
 import DataSnapshot = firebase.database.DataSnapshot;
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ItemsDonnesService {
 
   listeDesItemsDonnes: Item[] = [];
   listeItemDonnesSubject = new Subject<Item[]>();
+  db: AngularFirestore;
 
   emitItemsDonnes() {
     this.listeItemDonnesSubject.next(this.listeDesItemsDonnes);
@@ -29,8 +31,9 @@ export class ItemsDonnesService {
       );
   }
 
-  constructor() {
+  constructor(db: AngularFirestore) {
     this.getItemsDonnes();
+    this.db = db;
   }
 
   addAssociation(newAssociation: Item) {
@@ -39,17 +42,14 @@ export class ItemsDonnesService {
     this.emitItemsDonnes();
   }
 
-  removeStats(newItem: Item) {
-    const itemIndexToRemove = this.listeDesItemsDonnes.findIndex(
-      (itemToDelete) => {
-        if (itemToDelete === newItem) {
-          return true;
-        }
+  getItemByCharacterName(charName: string){
+    var charItems: Item[];
+    for (let item of this.listeDesItemsDonnes){
+      if (charName == item.characterName){
+        charItems.push(item);
       }
-    );
-    this.listeDesItemsDonnes.splice(itemIndexToRemove, 1);
-    this.saveItemsDonnes();
-    this.emitItemsDonnes();
+    }
+    return charItems;
   }
 
   unsubscribe() {
