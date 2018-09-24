@@ -12,21 +12,17 @@ export class ItemComponent implements OnInit {
 
   @Input() characterName: string;
   items: Item[];
+  itemSubscription: Subscription;
 
   constructor(private itemService: ItemsDonnesService) {
   }
 
   ngOnInit(): void {
-    this.items.push(new Item('TOTO',1,'TUTU','1412'));
-    this.getCharacterItems();
+    this.itemSubscription = this.itemService.listeItemDonnesSubject.subscribe(
+      (items: Item[]) => {
+        this.items = items;
+      }
+    );
     this.itemService.emitItemsDonnes();
   }
-
-  getCharacterItems(){
-   this.items = this.itemService.getItemByCharacterName(this.characterName);
-   for (let item of this.items){
-     console.log('Item de '+this.characterName+' '+item.name);
-   }
-  }
-
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
 import {config, environment} from '../environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-root',

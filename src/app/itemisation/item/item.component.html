@@ -1,4 +1,4 @@
-<!--
-<a *ngFor="let item of getCharacterItems()" href="https://www.wowhead.com/item={{item.idItem}}" rel="bonus={{item.bonus}}" class="q4">{{item.name}}</a>
--->
-HELP
+<ng-container *ngFor="let item of items">
+<a *ngIf="item.characterName == characterName" href="https://www.wowhead.com/item={{item.idItem}}"
+   rel="bonus={{item.bonus}}" class="q4">{{item.name}}</a><br>
+</ng-container>

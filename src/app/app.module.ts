@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MemberItemComponent } from './member/member-item/member-item.component';
-import { SpecListComponent } from './specialisation/spec-list/spec-list.component';
 import { BisListComponent } from './itemisation/bis-list/bis-list.component';
 import { ItemComponent } from './itemisation/item/item.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'newpds', component: NewComponent},
   { path: 'newItemAssociation', component: NewItemAssociationComponent},
   { path: 'memberDetails', component: MemberItemComponent},
+  { path: 'bisList', component: BisListComponent},
   { path: 'editPds/:spec/:mono/:multi/:classe', component: EditComponent},
   { path: '**', component: MemberDezListComponent},
   { path: '', component: MemberDezListComponent}
@@ -40,7 +40,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MemberItemComponent,
-    SpecListComponent,
     BisListComponent,
     ItemComponent,
     NavbarComponent,
@@ -48,7 +47,7 @@ const appRoutes: Routes = [
     PoidsDesStatsComponent,
     NewComponent,
     NewItemAssociationComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BisListComponent implements OnInit {
 
-  constructor() { }
+  listeDesSpes: Array<string> = ['Fury','Prot','Armes'];
+  currentSpe: string;
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  setSpe(specialisation: string) {
+    this.currentSpe = specialisation;
+    console.log(this.currentSpe)
   }
 
 }
