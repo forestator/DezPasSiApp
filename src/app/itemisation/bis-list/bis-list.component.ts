@@ -13,9 +13,7 @@ export class BisListComponent implements OnInit {
 
   listeDesSpes: Array<string> = ['Fury','Prot','Armes'];
   listeBisItems: BisItem[];
-  data = {
-    singleSelect: null,
-  };
+  currentSpe: string = 'Armes';
   bisSubscription: Subscription;
 
   constructor(private bisListService: SpeBisListService, private router: Router) {
@@ -35,4 +33,7 @@ export class BisListComponent implements OnInit {
   }
 
 
+  setCurrentSpe(spe: string) {
+
+  }
 }

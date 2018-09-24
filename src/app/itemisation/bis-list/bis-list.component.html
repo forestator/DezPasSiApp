@@ -1,8 +1,9 @@
 <div class="row">
   <div class="offset-1 col-6 mb-3 mt-3">
     <span>Spécialisation :</span>
-    <select class="form-control" (change)="setCurrentSpe()" (ngoptions)>
-      <option *ngFor="let spe of listeDesSpes" value="{{spe}}">{{spe}}</option>
+    <select class="form-control"  id="spe"
+            [(ngModel)]="currentSpe" name="spe">
+      <option *ngFor="let specialis of listeDesSpes" [value]="specialis">{{specialis}}</option>
     </select>
   </div>
 </div>
@@ -17,7 +18,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let bisItem of listeBisItems">
-      <ng-container *ngIf="bisItem.spe == data.singleSelect">
+      <ng-container *ngIf="bisItem.spe == currentSpe">
         <td><strong>{{bisItem.slot}}</strong></td>
         <td>
           <a href="https://www.wowhead.com/item={{bisItem.id}}"
