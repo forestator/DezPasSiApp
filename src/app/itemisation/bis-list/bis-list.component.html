@@ -1,124 +1,33 @@
 <div class="row">
-  <div class="ml-1 col-10 mt-2">
-    <h2>Spécialisation :</h2>
+  <div class="offset-1 col-6 mb-3 mt-3">
+    <span>Spécialisation :</span>
+    <select class="form-control" (change)="setCurrentSpe()" (ngoptions)>
+      <option *ngFor="let spe of listeDesSpes" value="{{spe}}">{{spe}}</option>
+    </select>
   </div>
 </div>
 <div class="row">
-  <div class="ml-1 col-3 mt-1">
-    
-  </div>
-</div>
-<div class="row">
-  <div class="mt-3 ml-1 col-10">
-    <table class="table-striped">
-      <thead>
-      <tr>
-        <th scope="col">Slot</th>
-        <th scope="col">Bis Item</th>
-        <th scope="col">Alternative</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><b>Helm</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_helm_plate_nazmirraid_d_01.jpg" alt="Helm of the Defiled Laboratorium Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160732" data-tooltip-href="https://www.wowdb.com/items/160732">Helm of the Defiled Laboratorium</a></span></li>
-          <li>G'huun</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_helm_plate_zandalardungeon_c_01.jpg" alt="Helm of the Raptor King Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159422" data-tooltip-href="https://www.wowdb.com/items/159422">Helm of the Raptor King</a></span></li>
-          <li>Kings' Rest</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Shoulders</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_shoulder_plate_nazmirraid_d_01.jpg" alt="Chitinspine Pauldrons Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160641" data-tooltip-href="https://www.wowdb.com/items/160641">Chitinspine Pauldrons</a></span></li>
-          <li>Mythrax the Unraveler</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_shoulder_plate_zandalardungeon_c_01.jpg" alt="Pauldrons of the Great Unifier Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159423" data-tooltip-href="https://www.wowdb.com/items/159423">Pauldrons of the Great Unifier</a></span></li>
-          <li>Kings' Rest</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Cloak</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_leather_nazmirraid_d_01cape.jpg" alt="Fetid Horror's Tanglecloak Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160643" data-tooltip-href="https://www.wowdb.com/items/160643">Fetid Horror's Tanglecloak</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/fetid-devourer-guide-for-uldir">Fetid Devourer</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_cape_plate_zandalardungeon_c_01.jpg" alt="Cloak of Questionable Intent Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159287" data-tooltip-href="https://www.wowdb.com/items/159287">Cloak of Questionable Intent</a></span></li>
-          <li>The MOTHERLODE!!</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Chest</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_chest_plate_nazmirraid_d_01.jpg" alt="Chestplate of Apocalyptic Machinations Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160722" data-tooltip-href="https://www.wowdb.com/items/160722">Chestplate of Apocalyptic Machinations</a></span></li>
-          <li>Zul</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_chest_plate_kultirasdungeon_c_01.jpg" alt="Harpooner's Plate Cuirass Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159416" data-tooltip-href="https://www.wowdb.com/items/159416">Harpooner's Plate Cuirass</a></span></li>
-          <li>Siege of Boralus</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Wrists</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_bracer_plate_nazmirraid_d_01.jpg" alt="Crushproof Vambraces Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/161074" data-tooltip-href="https://www.wowdb.com/items/161074">Crushproof Vambraces</a></span></li>
-          <li>Uldir BoE</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_bracer_plate_zandalardungeon_c_01.jpg" alt="Embalmer's Steadying Bracers Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159409" data-tooltip-href="https://www.wowdb.com/items/159409">Embalmer's Steadying Bracers</a></span></li>
-          <li>Kings' Rest</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Gloves</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_glove_plate_nazmirraid_d_01.jpg" alt="Fluid-Resistant Specimen Handlers Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/161077" data-tooltip-href="https://www.wowdb.com/items/161077">Fluid-Resistant Specimen Handlers</a></span></li>
-          <li>Uldir BoE</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_glove_plate_zandalardungeon_c_01.jpg" alt="Fangproof Gauntlets Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159437" data-tooltip-href="https://www.wowdb.com/items/159437">Fangproof Gauntlets</a></span></li>
-          <li>Temple of Sethraliss</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Belt</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_belt_plate_nazmirraid_d_01.jpg" alt="Decontaminator's Greatbelt Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160638" data-tooltip-href="https://www.wowdb.com/items/160638">Decontaminator's Greatbelt</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/mother-guide-for-uldir">M.O.T.H.E.R.</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_belt_plate_kultirasdungeon_c_01.jpg" alt="Belt of the Unrelenting Gale Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159426" data-tooltip-href="https://www.wowdb.com/items/159426">Belt of the Unrelenting Gale</a></span></li>
-          <li>Shrine of the Storm</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Legs</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_pant_plate_nazmirraid_d_01.jpg" alt="Greaves of Unending Vigil Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160639" data-tooltip-href="https://www.wowdb.com/items/160639">Greaves of Unending Vigil</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/taloc-guide-for-uldir">Taloc</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_pant_plate_zandalardungeon_c_01.jpg" alt="Legplates of Profane Sacrifice Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159443" data-tooltip-href="https://www.wowdb.com/items/159443">Legplates of Profane Sacrifice</a></span></li>
-          <li>The Underrot</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Boots</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_boot_plate_nazmirraid_d_01.jpg" alt="Warboots of Absolute Eradication Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160640" data-tooltip-href="https://www.wowdb.com/items/160640">Warboots of Absolute Eradication</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/zek-voz-herald-of-n-zoth-guide-for-uldir">Zek'voz</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_boot_plate_kultirasdungeon_c_01.jpg" alt="Ballast Sinkers Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159428" data-tooltip-href="https://www.wowdb.com/items/159428">Ballast Sinkers</a></span></li>
-          <li>Siege of Boralus</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Ring #1</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_ring_80_04e.jpg" alt="Band of Certain Annihilation Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160646" data-tooltip-href="https://www.wowdb.com/items/160646">Band of Certain Annihilation</a></span></li>
-          <li>Mythrax the Unraveler</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_ring_80_05b.jpg" alt="Band of the Ancient Dredger Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159461" data-tooltip-href="https://www.wowdb.com/items/159461">Band of the Ancient Dredger</a></span></li>
-          <li>Siege of Boralus</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Ring #2</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_ring_80_04d.jpg" alt="Rot-Scour Ring Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160645" data-tooltip-href="https://www.wowdb.com/items/160645">Rot-Scour Ring</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/mother-guide-for-uldir">M.O.T.H.E.R.</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_ring_80_06b.jpg" alt="Seal of Questionable Loyalties Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/158314" data-tooltip-href="https://www.wowdb.com/items/158314">Seal of Questionable Loyalties</a></span></li>
-          <li>Freehold</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Trinket #1</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/trade_archaeology_bloodysatyrscepter.jpg" alt="Syringe of Bloodborne Infirmity Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160655" data-tooltip-href="https://www.wowdb.com/items/160655">Syringe of Bloodborne Infirmity</a></span></li>
-          <li>Vectis</li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_misc_food_legion_seashellh1.jpg" alt="Briny Barnacle Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159619" data-tooltip-href="https://www.wowdb.com/items/159619">Briny Barnacle</a></span></li>
-          <li>Shrine of the Storm</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Trinket #2</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/creatureportrait_nexus_floating_disc.jpg" alt="Disc of Systematic Regression Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160650" data-tooltip-href="https://www.wowdb.com/items/160650">Disc of Systematic Regression</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/zek-voz-herald-of-n-zoth-guide-for-uldir">Zek'voz</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/ability_hunter_aspectoftheviper.jpg" alt="Rezan's Gleaming Eye Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/158712" data-tooltip-href="https://www.wowdb.com/items/158712">Rezan's Gleaming Eye</a></span></li>
-          <li>Atal'Dazar</li></ul></td>
-      </tr>
-      <tr>
-        <td><b>Weapon #1</b></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_mace_2h_capturedtitanconstruct_d_01.jpg" alt="Khor, Hammer of the Corrupted Icon"> <a rel="nofollow" class="q4" href="https://www.wowdb.com/items/160679" data-tooltip-href="https://www.wowdb.com/items/160679">Khor, Hammer of the Corrupted</a></span></li>
-          <li><a href="//www.icy-veins.com/wow/taloc-guide-for-uldir">Taloc</a></li></ul></td>
-        <td><ul><li><span class="spell_icon_span"><img class="spell_icon" src="//static.icy-veins.com/images/wow/large_icons/inv_sword_2h_battledungeon_c_01.jpg" alt="Geti'ikku, Cut of Death Icon"> <a rel="nofollow" class="q3" href="https://www.wowdb.com/items/159644" data-tooltip-href="https://www.wowdb.com/items/159644">Geti'ikku, Cut of Death</a></span></li>
-          <li>Kings' Rest</li></ul></td>
-      </tr>
-      </tbody></table>
-
-
-  </div>
+  <table class="offset-1 table table-striped col-10">
+    <thead>
+    <tr>
+      <th scope="col"><strong>Slot</strong></th>
+      <th scope="col"><strong>Bis Item</strong></th>
+      <th scope="col"><strong>Drop a</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bisItem of listeBisItems">
+      <ng-container *ngIf="bisItem.spe == data.singleSelect">
+        <td><strong>{{bisItem.slot}}</strong></td>
+        <td>
+          <a href="https://www.wowhead.com/item={{bisItem.id}}"
+             rel="bonus={{bisItem.bonus}}" class="q4">{{bisItem.name}}</a>
+        </td>
+        <td>
+          {{bisItem.dropBy}} ({{bisItem.dungeonOrRaid}})
+        </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
 </div>

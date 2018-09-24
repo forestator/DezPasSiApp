@@ -23,6 +23,8 @@ import { EditComponent } from './poids-des-stats/edit/edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSelectModule, MatTableModule} from '@angular/material';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {SpeBisListService} from './services/spe-bis-list.service';
+import { NewBisListComponent } from './itemisation/bis-list/new-bis-list/new-bis-list.component';
 
 const appRoutes: Routes = [
   { path: 'members', component: MemberDezListComponent},
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'newItemAssociation', component: NewItemAssociationComponent},
   { path: 'memberDetails', component: MemberItemComponent},
   { path: 'bisList', component: BisListComponent},
+  { path: 'newBisListItems', component: NewBisListComponent},
   { path: 'editPds/:spec/:mono/:multi/:classe', component: EditComponent},
   { path: '**', component: MemberDezListComponent},
   { path: '', component: MemberDezListComponent}
@@ -48,6 +51,7 @@ const appRoutes: Routes = [
     NewComponent,
     NewItemAssociationComponent,
     EditComponent,
+    NewBisListComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ const appRoutes: Routes = [
   providers: [
     StatsService,
     WowWapiGuildMembersService,
-    CharacterDetailsService
+    CharacterDetailsService,
+    SpeBisListService
   ],
   bootstrap: [AppComponent]
 })

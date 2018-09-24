@@ -1,0 +1,33 @@
+<div class="mt-3 container">
+  <form [formGroup]="BisListForm" (ngSubmit)="onSaveBisList()">
+    <div class="form-group">
+      <label for="id">Id :</label>
+      <input formControlName="id" type="number" id="id" class="form-control" value="0">
+    </div>
+    <div class="form-group">
+      <label for="id">Specialisation :</label>
+      <input type="text" id="spe" class="form-control" value="" formControlName="spe">
+    </div>
+    <div class="form-group">
+      <label for="id">slot :</label>
+      <input type="text" id="slot" class="form-control" value="" formControlName="slot">
+    </div>
+    <div class="form-group">
+      <label for="id">Nom :</label>
+      <input type="text" id="name" class="form-control" value="" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="id">Bonus :</label>
+      <input type="text" id="bonus" class="form-control" value="4800:1507" formControlName="bonus">
+    </div>
+    <div class="form-group">
+      <label for="id">Drop par :</label>
+      <input type="text" id="dropBy" class="form-control" value="" formControlName="dropBy">
+    </div>
+    <div class="form-group">
+      <label for="id">dungeonOrRaid :</label>
+      <input type="text" id="dungeonOrRaid" class="form-control" value="" formControlName="dungeonOrRaid">
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="BisListForm.invalid">Submit</button>
+  </form>
+</div>

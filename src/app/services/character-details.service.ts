@@ -23,24 +23,6 @@ export interface RootObject {
 export interface Items {
   averageItemLevel: number;
   averageItemLevelEquipped: number;
-  /*
-  head: Head;
-  neck: Neck;
-  shoulder: Shoulder;
-  back: Back;
-  chest: Chest;
-  tabard: Tabard;
-  wrist: Wrist;
-  hands: Hands;
-  waist: Waist;
-  legs: Legs;
-  feet: Feet;
-  finger1: Finger1;
-  finger2: Finger2;
-  trinket1: Trinket1;
-  trinket2: Trinket2;
-  mainHand: MainHand;
-*/
 }
 
 @Injectable({

@@ -6,7 +6,6 @@ export class BisItem {
     public name: string,
     public bonus: string,
     public dropBy: string,
-    public ouLeDrop: string,
     public dungeonOrRaid: {'dungeon', 'raid' }
     ) {}
 }
