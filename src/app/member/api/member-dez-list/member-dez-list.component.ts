@@ -156,7 +156,7 @@ export class MemberDezListComponent implements OnInit {
 
       }
       default: {
-        return "erreur";
+        return "Recrue";
 
       }
     }
