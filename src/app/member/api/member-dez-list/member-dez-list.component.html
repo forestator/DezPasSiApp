@@ -28,7 +28,12 @@
     <td *ngIf="member.character.spec != null">{{findStatsBySpecMulti(member.character.spec.name,textClasse(member.character.class))}}</td>
     <td *ngIf="member.character.spec != null">
       <a href="https://worldofwarcraft.com/fr-fr/character/archimonde/{{member.character.name.toLowerCase()}}">Armory</a></td>
-    <td><app-item [characterName]="member.character.name"></app-item></td>
+      <ng-container *ngFor="let item of memberItems(member.character.name)">
+        <ng-container *ngIf=" memberItems(member.character.name) != []">
+    <td><a href="https://www.wowhead.com/item={{item.idItem}}"
+           rel="bonus={{item.bonus}}" class="q4">{{item.name}}</a><br></td>
+        </ng-container>
+      </ng-container>
     </ng-container>
   </tr>
   </tbody>

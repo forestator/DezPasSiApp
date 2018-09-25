@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Member, RootObject, WowWapiGuildMembersService} from '../../../services/wow-wapi-guild-members.service';
+import {Item, Member, RootObject, WowWapiGuildMembersService} from '../../../services/wow-wapi-guild-members.service';
 import {Subscription} from 'rxjs';
 import {StatsService} from '../../../services/stats.service';
 import {PoidsDesStats} from '../../../models/PDS';
@@ -16,6 +16,9 @@ export class MemberDezListComponent implements OnInit {
   statsSubscription: Subscription;
   members: Member[];
   memberSubscription: Subscription;
+  items: Item[];
+  itemSubscription: Subscription;
+  characterItems: Item[] = [];
 
   constructor(private wowService: WowWapiGuildMembersService, private statsService: StatsService,private itemService: ItemsDonnesService) {
   }
@@ -23,7 +26,18 @@ export class MemberDezListComponent implements OnInit {
   ngOnInit() {
     this.showMembers();
     this.showStats();
+    this.showItems();
   }
+
+  showItems(){
+    this.itemSubscription = this.itemService.listeItemDonnesSubject.subscribe(
+      (items: Item[]) => {
+        this.items = items;
+      }
+    );
+    this.itemService.emitItemsDonnes();
+  }
+
 
   showStats() {
     this.statsSubscription = this.statsService.statsSubject.subscribe(
@@ -153,6 +167,17 @@ export class MemberDezListComponent implements OnInit {
     this.statsService.unsubscribe();
     this.memberSubscription.unsubscribe();
     this.statsSubscription.unsubscribe();
+    this.itemSubscription.unsubscribe();
+  }
+
+  memberItems(name: string) {
+    this.characterItems = [];
+    for (let item of this.items){
+      if (item.characterName == name){
+        this.characterItems.push(item);
+      }
+    }
+    return this.characterItems;
   }
 
 }

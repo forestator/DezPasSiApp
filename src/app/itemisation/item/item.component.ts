@@ -3,6 +3,8 @@ import {ItemsDonnesService} from '../../services/items-donnes.service';
 import {Item} from '../../services/wow-wapi-guild-members.service';
 import {Subscription} from 'rxjs';
 
+let input = Input;
+
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
@@ -10,19 +12,11 @@ import {Subscription} from 'rxjs';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() characterName: string;
-  items: Item[];
-  itemSubscription: Subscription;
 
-  constructor(private itemService: ItemsDonnesService) {
+
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.itemSubscription = this.itemService.listeItemDonnesSubject.subscribe(
-      (items: Item[]) => {
-        this.items = items;
-      }
-    );
-    this.itemService.emitItemsDonnes();
   }
 }
