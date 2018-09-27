@@ -42,7 +42,11 @@ export class SpeBisListService {
   }
 
   createNewBisList(newBisList: BisItem) {
-    this.selectedSpe = newBisList.spe;
+    if(this.selectedSpe != newBisList.spe)
+    {
+      this.selectedSpe = newBisList.spe;
+      this.listeBisItems = [];
+    }
     this.listeBisItems.push(newBisList);
     this.saveBis();
     this.emitBis();
@@ -50,5 +54,12 @@ export class SpeBisListService {
 
   unsubscribe() {
     this.listeBisSubject.unsubscribe();
+  }
+
+  emitBisNewSpe(currentSpe: string) {
+    console.log("coucou"+currentSpe);
+    this.selectedSpe = currentSpe;
+    this.getBis();
+    this.emitBis();
   }
 }

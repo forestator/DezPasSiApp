@@ -28,12 +28,17 @@ export class BisListComponent implements OnInit {
     this.bisListService.emitBis();
   }
 
-  onNewStats() {
-    this.router.navigate(['/newBisListItems']);
+  refresSpe() {
+
+    this.bisListService.emitBisNewSpe(this.currentSpe);
+
+this.bisSubscription = this.bisListService.listeBisSubject.subscribe(
+  (listeBisItems: BisItem[]) => {
+    this.listeBisItems = listeBisItems;
   }
+);
+this.bisListService.emitBis();
 
-
-  setCurrentSpe(spe: string) {
 
   }
 }
